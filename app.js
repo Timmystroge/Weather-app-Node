@@ -12,11 +12,13 @@ app.get("/", function (req, res) {
     console.log(response.statusCode);
 
     response.on("data", function (data) {
-      const weatherData = JSON.parse(data);/* Weather Data */
-      const temp = weatherData.main.temp;/* Weather Temperature */
+      const weatherData = JSON.parse(data); /* Weather Data */
+      const temp = weatherData.main.temp; /* Weather Temperature */
       const name = weatherData.name; /* City Name */
-      const feels = weatherData.main.feels_like; /* What the weaher feels like */
-      const description = weatherData.weather[0].description; /* Weather description */
+      const feels =
+        weatherData.main.feels_like; /* What the weaher feels like */
+      const description =
+        weatherData.weather[0].description; /* Weather description */
       const icon = weatherData.weather[0].icon; /* Current weather icon */
       const imageUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
       res.write(
